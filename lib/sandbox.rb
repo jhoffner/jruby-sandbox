@@ -123,6 +123,7 @@ module Sandbox
 
     STRING_S_METHODS = %w[
       new
+      try_convert
     ].freeze
 
     KERNEL_METHODS = %w[
@@ -205,9 +206,13 @@ module Sandbox
       &
       inspect
       nil?
+      rationalize
       to_a
+      to_c
       to_f
+      to_h
       to_i
+      to_r
       to_s
       ^
       |
@@ -215,12 +220,30 @@ module Sandbox
 
     SYMBOL_METHODS = %w[
       ===
+      <=>
+      =~
+      ==
+      []
       id2name
       inspect
       to_i
       to_int
       to_s
       to_sym
+      to_proc
+      upcase
+      capitalize
+      downcase
+      empty?
+      encoding
+      match
+      next
+      size
+      slice
+      succ
+      swapcase
+      intern
+      casecmp
     ].freeze
 
     TRUECLASS_METHODS = %w[
@@ -228,6 +251,7 @@ module Sandbox
       to_s
       ^
       |
+      inspect
     ].freeze
 
     FALSECLASS_METHODS = %w[
@@ -235,29 +259,53 @@ module Sandbox
       to_s
       ^
       |
+      inspect
     ].freeze
 
     ENUMERABLE_METHODS = %w[
       all?
       any?
+      chunk
       collect
+      collect_concat
+      count
+      cycle
       detect
+      drop
+      drop_while
+      each_cons
+      each_entry
+      each_slice
       each_with_index
+      each_with_object
       entries
       find
       find_all
+      group_by
       grep
       include?
       inject
       map
       max
+      max_by
       member?
       min
+      min_by
+      member?
+      minmax
+      minmax_by
+      none?
+      one?
       partition
+      reduce
       reject
+      reverse_each
       select
+      slice_before
       sort
       sort_by
+      take
+      take_while
       to_a
       zip
     ].freeze
@@ -269,7 +317,15 @@ module Sandbox
       <<
       <=>
       ==
+      ===
       =~
+      []
+      []=
+      ascii_only?
+      b
+      bytes
+      bytesize
+      byteslice
       capitalize
       capitalize!
       casecmp
@@ -278,6 +334,9 @@ module Sandbox
       chomp!
       chop
       chop!
+      chr
+      clear
+      codepoints
       concat
       count
       crypt
@@ -288,9 +347,16 @@ module Sandbox
       dump
       each
       each_byte
+      each_codepoint
       each_line
       empty?
+      encode
+      encode!
+      encoding
+      end_with?
       eql?
+      force_encoding
+      getbyte
       gsub
       gsub!
       hash
@@ -311,14 +377,19 @@ module Sandbox
       next
       next!
       oct
+      ord
+      partition
+      prepend
       replace
       reverse
       reverse!
       rindex
       rjust
+      rpartition
       rstrip
       rstrip!
       scan
+      setbyte
       size
       slice
       slice!
@@ -335,8 +406,10 @@ module Sandbox
       sum
       swapcase
       swapcase!
+      to_c
       to_f
       to_i
+      to_r
       to_s
       to_str
       to_sym
@@ -344,9 +417,11 @@ module Sandbox
       tr!
       tr_s
       tr_s!
+      unpack
       upcase
       upcase!
       upto
+      valid_encoding?
       []
       []=
     ].freeze
