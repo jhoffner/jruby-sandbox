@@ -119,7 +119,7 @@ describe Sandbox do
     
     it "should have an empty ENV" do
       pending do
-        subject.eval(%{ENV.to_a}).should be_empty 
+        subject.eval(%{ENV.to_a}).should be_empty
       end
     end
 
