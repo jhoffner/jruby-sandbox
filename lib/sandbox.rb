@@ -66,16 +66,47 @@ module Sandbox
       FakeFS::FileSystem.clear
     end
 
-    def eval_with_timeout(code, timeout=10)
-      require 'timeout'
-
-      timeout_code = <<-RUBY
-        Timeout.timeout(#{timeout}) do
-          #{code}
+    def eval(code, options = {})
+      if seconds = options[:timeout]
+        sandbox_timeout(code, seconds) do
+          super code
         end
-      RUBY
+      else
+        super code
+      end
+    end
 
-      eval timeout_code
+    private
+
+    def sandbox_timeout(name, seconds)
+      val, exc = nil
+
+      thread = Thread.start(name) do
+        begin
+          val = yield
+        rescue Exception => exc
+        end
+      end
+
+      thread.join(seconds)
+
+      if thread.alive?
+        if thread.respond_to? :kill!
+          thread.kill!
+        else
+          thread.kill
+        end
+
+        timed_out = true
+      end
+
+      if timed_out
+        raise TimeoutError, "#{self.class} timed out"
+      elsif exc
+        raise exc
+      else
+        val
+      end
     end
 
     IO_S_METHODS = %w[

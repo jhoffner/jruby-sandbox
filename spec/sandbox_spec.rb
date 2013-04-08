@@ -73,7 +73,7 @@ describe Sandbox do
     end
   end
   
-  describe "#eval_with_timeout" do
+  describe "#eval with timeout" do
     subject { Sandbox.safe }
     
     context "before it's been activated" do
@@ -83,8 +83,8 @@ describe Sandbox do
         RUBY
 
         expect {
-          subject.eval_with_timeout(long_code, 1)
-        }.to raise_error(Sandbox::SandboxException, /Timeout/)
+          subject.eval(long_code, timeout: 1)
+        }.to raise_error(TimeoutError)
       end
     end
     
@@ -98,9 +98,9 @@ describe Sandbox do
 
         expect {
           Timeout.timeout(3) do
-            subject.eval_with_timeout(long_code, 1)
+            subject.eval(long_code, timeout: 1)
           end
-        }.to raise_error(Sandbox::SandboxException, /Timeout/)
+        }.to raise_error(TimeoutError)
       end
     end
   end
