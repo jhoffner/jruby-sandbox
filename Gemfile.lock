@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jruby_sandbox (0.1.6-java)
+    jruby_sandbox (0.1.7-java)
       fakefs
 
 GEM
