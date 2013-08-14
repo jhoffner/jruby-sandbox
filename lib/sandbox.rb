@@ -371,6 +371,7 @@ module Sandbox
       concat
       count
       crypt
+      chars
       delete
       delete!
       downcase
@@ -380,6 +381,7 @@ module Sandbox
       each_byte
       each_codepoint
       each_line
+      each_char
       empty?
       encode
       encode!
