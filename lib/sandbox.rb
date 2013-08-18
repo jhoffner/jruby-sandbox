@@ -138,6 +138,7 @@ module Sandbox
       loop
       method_missing
       proc
+      rand
       raise
       scan
       split
@@ -211,6 +212,7 @@ module Sandbox
       protected_methods
       public_methods
       raise
+      rand
       remove_instance_variable
       respond_to?
       respond_to_missing?
