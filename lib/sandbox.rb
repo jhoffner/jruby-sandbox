@@ -200,6 +200,7 @@ module Sandbox
       lambda
       local_variables
       loop
+      method
       methods
       method_missing
       nil?
