@@ -222,6 +222,7 @@ module Sandbox
       split
       sprintf
       String
+      srand
       sub
       sub!
       taint
