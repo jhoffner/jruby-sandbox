@@ -494,5 +494,5 @@ module Sandbox
   #    []
   #    []=
   #  ].freeze
-  #end
+  end
 end
