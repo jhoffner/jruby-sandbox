@@ -33,36 +33,35 @@ module Sandbox
       #keep_methods(:Enumerable, ENUMERABLE_METHODS)
       #keep_methods(:String, STRING_METHODS)
 
-      remove_method :Kernel, "`"
-      remove_method :Kernel, "at_exit"
-      remove_method :Kernel, "abort"
-      remove_method :Kernel, "autoload"
-      remove_method :Kernel, "autoload?"
-      remove_method :Kernel, "callcc"
-      remove_method :Kernel, "caller"
-      remove_method :Kernel, "exec"
-      remove_method :Kernel, "eval"
-      remove_method :Kernel, "exit"
-      remove_method :Kernel, "exit!"
-      remove_method :Kernel, "fork" rescue nil
-      remove_method :Kernel, "load"
-      remove_method :Kernel, "open"
-      remove_method :Kernel, "putc"
-      remove_method :Kernel, "puts"
-      remove_method :Kernel, "print"
-      remove_method :Kernel, "readline"
-      remove_method :Kernel, "readlines"
-      remove_method :Kernel, "require"
-      remove_method :Kernel, "require_relative"
-      remove_method :Kernel, "p"
-      remove_method :Kernel, "select"
-      remove_method :Kernel, "sleep"
-      remove_method :Kernel, "spawn"
-      remove_method :Kernel, "syscall"
-      remove_method :Kernel, "test"
-      remove_method :Kernel, "trap"
-      remove_method :Kernel, "system"
-      remove_method :Kernel, "set_trace_func"
+      remove_method :Kernel, '`'
+      remove_method :Kernel, 'at_exit'
+      remove_method :Kernel, 'abort'
+      remove_method :Kernel, 'autoload'
+      remove_method :Kernel, 'autoload?'
+      remove_method :Kernel, 'callcc'
+      remove_method :Kernel, 'caller'
+      remove_method :Kernel, 'exec'
+      remove_method :Kernel, 'exit'
+      remove_method :Kernel, 'exit!'
+      remove_method :Kernel, 'fork'
+      remove_method :Kernel, 'load'
+      remove_method :Kernel, 'open'
+      remove_method :Kernel, 'putc'
+      remove_method :Kernel, 'puts'
+      remove_method :Kernel, 'print'
+      remove_method :Kernel, 'readline'
+      remove_method :Kernel, 'readlines'
+      remove_method :Kernel, 'require'
+      remove_method :Kernel, 'require_relative'
+      remove_method :Kernel, 'p'
+      remove_method :Kernel, 'select'
+      remove_method :Kernel, 'sleep'
+      remove_method :Kernel, 'spawn'
+      remove_method :Kernel, 'syscall'
+      remove_method :Kernel, 'test'
+      remove_method :Kernel, 'trap'
+      remove_method :Kernel, 'system'
+      remove_method :Kernel, 'set_trace_func'
     end
 
     def activate_fakefs
